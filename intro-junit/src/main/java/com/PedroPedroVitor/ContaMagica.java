@@ -43,6 +43,24 @@ public class ContaMagica {
     }
 
     public void retirada(int valor) throws INVALID_OPER_EXCEPTION{
-        
+        if((this.saldo - valor) < 0){
+            throw new INVALID_OPER_EXCEPTION("nao eh possivel sacar um valor maior do que a conta possui");
+        }
+
+        if(status == SILVER){
+            this.saldo -= valor;
+        }
+        else if(status == GOLD){
+            this.saldo -= valor;
+            if(this.saldo < 25000){
+                this.status = 0;
+            }
+        }
+        else if(status == PLATINUM){
+            this.saldo -= valor;
+            if(this.saldo < 100000){
+                this.status = 1;
+            }
+        }
     }
 }

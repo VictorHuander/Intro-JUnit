@@ -1,3 +1,4 @@
+package com.PedroPedroVitor;
 
 public class INVALID_OPER_EXCEPTION extends Exception{
 
